@@ -25,10 +25,14 @@ const postsSlice = createSlice({
     loading: false,
     error: null,
     showForm: false,
+    displayCount: 12,
   },
   reducers: {
     toggleForm: (state) => {
       state.showForm = !state.showForm;
+    },
+    loadMore: (state) => {
+      state.displayCount += 12;
     },
   },
   extraReducers: (builder) => {
@@ -50,5 +54,6 @@ const postsSlice = createSlice({
   },
 });
 
+export const { loadMore } = postsSlice.actions;
 export const { toggleForm } = postsSlice.actions;
 export default postsSlice.reducer;
